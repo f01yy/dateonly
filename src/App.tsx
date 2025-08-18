@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 declare global {
   interface Window {
@@ -22,7 +22,7 @@ function App() {
     // можно отправлять строку JSON с любыми данными
     tg.sendData(
       JSON.stringify({
-        action: "like",
+        action: 'like',
         userId: user?.id,
       })
     );
@@ -35,7 +35,9 @@ function App() {
       {user ? (
         <div className="bg-white shadow p-4 rounded-xl w-full max-w-sm">
           <p className="text-lg">Привет, {user.first_name}!</p>
-          <p className="text-sm text-gray-500 mb-4">Твой Telegram ID: {user.id}</p>
+          <p className="text-sm text-gray-500 mb-4">
+            Твой Telegram ID: {user.id}
+          </p>
 
           <button
             onClick={sendDataToBot}
