@@ -1,32 +1,32 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 declare global {
   interface Window {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    Telegram: any;
+    Telegram: any
   }
 }
 
 function App() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<any>(null)
 
   useEffect(() => {
-    const tg = window.Telegram.WebApp;
-    tg.ready(); // сообщает Telegram, что приложение готово
-    setUser(tg.initDataUnsafe?.user);
-  }, []);
+    const tg = window.Telegram.WebApp
+    tg.ready() // сообщает Telegram, что приложение готово
+    setUser(tg.initDataUnsafe?.user)
+  }, [])
 
   const sendDataToBot = () => {
-    const tg = window.Telegram.WebApp;
+    const tg = window.Telegram.WebApp
     // можно отправлять строку JSON с любыми данными
     tg.sendData(
       JSON.stringify({
         action: 'like',
         userId: user?.id,
       })
-    );
-  };
+    )
+  }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 text-center p-6">
@@ -50,7 +50,7 @@ function App() {
         <p>Загрузка данных пользователя...</p>
       )}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
