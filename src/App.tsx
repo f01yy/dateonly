@@ -17,17 +17,37 @@ function App() {
     setUser(tg.initDataUnsafe?.user);
   }, []);
 
+  const sendDataToBot = () => {
+    const tg = window.Telegram.WebApp;
+    // можно отправлять строку JSON с любыми данными
+    tg.sendData(
+      JSON.stringify({
+        action: "like",
+        userId: user?.id,
+      })
+    );
+  };
+
   return (
-      <div>
-        {user ? (
-          <div>
-            <p>Привет, {user.first_name}!</p>
-            <p>Твой Telegram ID: {user.id}</p>
-          </div>
-        ) : (
-          <p>Загрузка данных пользователя...</p>
-        )}
-      </div>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 text-center p-6">
+      <h1 className="text-2xl font-bold mb-4">🚀 Telegram Dating Mini App</h1>
+
+      {user ? (
+        <div className="bg-white shadow p-4 rounded-xl w-full max-w-sm">
+          <p className="text-lg">Привет, {user.first_name}!</p>
+          <p className="text-sm text-gray-500 mb-4">Твой Telegram ID: {user.id}</p>
+
+          <button
+            onClick={sendDataToBot}
+            className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg shadow"
+          >
+            Отправить данные боту
+          </button>
+        </div>
+      ) : (
+        <p>Загрузка данных пользователя...</p>
+      )}
+    </div>
   );
 }
 
