@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Heading } from '@chakra-ui/react'
 
 declare global {
   interface Window {
@@ -30,6 +31,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 text-center p-6">
+      <Heading>Chakra UI heading</Heading>
       <h1 className="text-2xl font-bold mb-4">🚀 Telegram Dating Mini App</h1>
 
       {user ? (
