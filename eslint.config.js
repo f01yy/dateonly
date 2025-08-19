@@ -29,6 +29,8 @@ export default tseslint.config([
     },
     rules: {
       quotes: 'off',
+      '@typescript-eslint/no-empty-object-type': 'off',
+      'react-refresh/only-export-components': 'off',
       'prettier/prettier': [
         'error',
         {
