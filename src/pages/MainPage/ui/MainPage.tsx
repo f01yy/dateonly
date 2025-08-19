@@ -1,13 +1,6 @@
 import { useEffect, useState } from 'react'
 
-declare global {
-  interface Window {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    Telegram: any
-  }
-}
-
-function App() {
+export const MainPage = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [user, setUser] = useState<any>(null)
 
@@ -52,5 +45,3 @@ function App() {
     </div>
   )
 }
-
-export default App
