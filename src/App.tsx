@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
-import { WebApp } from 'telegram-web-app'
 
 declare global {
   interface Window {
-    Telegram: {
-      WebApp: WebApp
-    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    Telegram: any
   }
 }
 
